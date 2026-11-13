@@ -1,0 +1,26 @@
+{%extends "base.html" %}
+
+{%block title %} Edit To Do List {% endblock title %}
+
+{% block content %}
+ <div class="container">
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="todoTitle" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="todoTitle" value="{{task.title}}" >
+        </div>
+        
+      <div class="form-floating">
+  <textarea class="form-control"  id="floatingTextarea" name="description">{{task.description}}</textarea>
+  <label for="floatingTextarea">Description</label>
+
+<br>
+<div>
+        <button type="submit" class="btn btn-primary">Update</button> 
+    </form>
+
+</div>
+{% endblock content %}
